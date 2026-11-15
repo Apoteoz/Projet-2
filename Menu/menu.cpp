@@ -10,6 +10,7 @@ using namespace std;
 
 //Fonctions
 
+// Fait évoluer le Pokémon si les ressources sont suffisantes.
 void evolvePokemon(Pokemon* p,Ressource* mesressources,EspecePokemon bestiaire[150],int index,Historique* l){
     p->evol += 1;
     p->nom = bestiaire[index].evolvesTo;
@@ -19,6 +20,7 @@ void evolvePokemon(Pokemon* p,Ressource* mesressources,EspecePokemon bestiaire[1
     addEvolution(l,m);
 }
 
+// Augmente le CP du Pokémon en consommant les ressources.
 void powerupPokemon(Pokemon* p,Ressource* mesressources,EspecePokemon bestiaire[150]){
     mesressources->poussieres -= 500;
     mesressources->bonbons -= 10;
@@ -26,6 +28,7 @@ void powerupPokemon(Pokemon* p,Ressource* mesressources,EspecePokemon bestiaire[
     cout << p->nom << " a gagné en puissance ! Nouveau CP : " << p->CP << "\n";
 }
 
+// Menu de choix entre évolution et power-up.
 void powerupEvolveMenu(Pokedex* monpokedex,Ressource* mesressources,EspecePokemon bestiaire[150],Historique* l){
     int answ = lireEntier("\nEntrez le numéro du pokemon à faire évoluer/power-up (1 à " + to_string(monpokedex->current) + ") : ", 1, monpokedex->current);
     maillon* temp = monpokedex->liste;
@@ -82,6 +85,7 @@ void powerupEvolveMenu(Pokedex* monpokedex,Ressource* mesressources,EspecePokemo
     }
 }
 
+// Libère les structures mémoire du jeu.
 void quitter(Pokedex* monpokedex,Ressource* mesressources,Historique* l)
 {
     if(monpokedex->liste != NULL)
@@ -99,6 +103,7 @@ void quitter(Pokedex* monpokedex,Ressource* mesressources,Historique* l)
     clearHistorique(l);
 }
 
+// Affiche le menu principal et redirige vers les fonctionnalités.
 void menu(Pokedex* monpokedex,Ressource* mesressources,EspecePokemon bestiaire[150],Historique* l)
 {
     cout << "\n";

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Menu/menu.h"
 
+// Point d'entrée du jeu : initialise les structures puis lance le menu.
 int main()
 {
     EspecePokemon bestiaire[150];

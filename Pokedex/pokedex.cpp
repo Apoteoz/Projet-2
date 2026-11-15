@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Initialise un nouveau pokédex vide.
 Pokedex* initPokedex(){
     Pokedex* monpokedex = (Pokedex*) malloc(sizeof(Pokedex));
     monpokedex->current = 0;
@@ -15,6 +16,7 @@ Pokedex* initPokedex(){
     return monpokedex;
 }
 
+// Démarre le stock de ressources du joueur.
 Ressource* initRessource(){
     Ressource* res = (Ressource*) malloc(sizeof(Ressource));
     res->poussieres = 10000;
@@ -22,6 +24,7 @@ Ressource* initRessource(){
     return res;
 }
 
+// Insère un Pokémon dans la liste triée par ordre alphabétique.
 void aux_insertPokemon(maillon* prev,maillon* current, Pokemon p){
     if(current == NULL || strcmp(current->p.nom, p.nom) > 0)
     {
@@ -65,6 +68,7 @@ void insertPokemon(Pokedex* monPokedex,Ressource* mesressources, Pokemon p){
     mesressources->bonbons += 3;
 }
 
+// Affiche les Pokémon capturés ainsi que les ressources disponibles.
 void displayPokedex(Pokedex* monpokedex,Ressource* mesressources)
 {
     cout << "\nNb de Pokemon capturés : " << monpokedex->current << "\n";
@@ -83,6 +87,7 @@ void displayPokedex(Pokedex* monpokedex,Ressource* mesressources)
     cout << "Bonbons : " << mesressources->bonbons << "\n";
 }
 
+// Génère un Pokémon sauvage et propose de le capturer.
 void genererPokemon(Pokedex* monpokedex, EspecePokemon bestiaire[150],Ressource* mesressources,Historique* l)
 {
     int speciesIndex = random_at_most(149);

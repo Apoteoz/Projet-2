@@ -13,8 +13,9 @@ const char* typesLabel[18] = { "Normal", "Fighting", "Flying", "Poison", "Ground
     "Ghost", "Steel", "Fire", "Grass", "Water", "Electric", "Psychic", "Ice", "Dragon", "Dark"
     , "Fairy" };
 
-//Fonctions
+// Libellés des types pour l'affichage et les comparaisons.
 
+// Remplit le bestiaire avec les espèces de référence.
 void initBestiaire(EspecePokemon bestiaire[]){
     bestiaire[0].nom = "Bulbasaur";
     bestiaire[0].type = Grass;

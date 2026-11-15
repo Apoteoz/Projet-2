@@ -5,8 +5,9 @@
 
 using namespace std;
 
-/// Implémentation 
+/// Implémentation des évolutions.
 
+// Crée un maillon d'évolution.
 Evolution* initEvolution(const char* name,const char* nameEvol,Evolution* next)
 {
     Evolution* p = new Evolution;
@@ -16,6 +17,7 @@ Evolution* initEvolution(const char* name,const char* nameEvol,Evolution* next)
     return p;
 }
 
+// Initialise la liste d'historique vide.
 Historique* initHistorique(Evolution* start)
 {
     Historique* l = new Historique;
@@ -24,6 +26,7 @@ Historique* initHistorique(Evolution* start)
     return l;
 }
 
+// Ajoute une évolution au début de la liste.
 void addEvolution(Historique* l, Evolution* p)
 {
     p->next = l->start;

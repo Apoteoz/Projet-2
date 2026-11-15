@@ -5,6 +5,7 @@
 #include <limits>
 #include "utils.h"
 
+// Génère un entier aléatoire dans [0, max].
 // For random(), RAND_MAX
 // Assumes 0 <= max <= RAND_MAX
 // Returns in the closed interval [0, max]
@@ -26,6 +27,7 @@ while (num_rand - defect <= (unsigned long)x);
 return x/bin_size;
 }
 
+// Lit une valeur entière en vérifiant les bornes demandées.
 int lireEntier(const std::string& invite, int min, int max) {
     std::string ligne;
     int valeur;

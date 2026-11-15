@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Calcule l'indice d'un type pour la table de hachage.
 int gethash(CombatHash* htable,const char* str)
 {
 unsigned long hash = 5381;
@@ -16,6 +17,7 @@ hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 return hash%(htable->size);
 }
 
+// Convertit un type enum en chaîne lisible.
 const char * pokemonTypeToString(PokemonType t) {
 if (t == Normal) {
 return "Normal";
@@ -90,6 +92,7 @@ void insert(CombatEspece* c, CombatHash* hashtable) {
     temp->next = c;
 }
 
+// Crée la table des forces et faiblesses de chaque type.
 CombatHash* initCombatHash() {
     
     CombatHash* hashtable = new CombatHash;
@@ -325,6 +328,7 @@ void compare(EspecePokemon bestiaire[150],CombatHash* hashtable,int indice[2],Co
     } 
 }
 
+// Simule les coups successifs jusqu'à la fin du combat.
 void attaque(Pokemon pok[2],int indice[2]){
     int i = 0;
     while(pok[0].PV>0 && pok[1].PV>0)
